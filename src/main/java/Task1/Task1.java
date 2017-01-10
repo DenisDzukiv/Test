@@ -19,7 +19,10 @@ public class Task1 {
             Validator validatorLast = new Validator();
             int startIp;
             int endIp;
-            if (validatorBegin.validate(ipBegin)&&validatorLast.validate(ipLast)&&(SplitValidator.split(ipBegin).equals(SplitValidator.split(ipLast)))) {
+            String threeNumIpBegin = SplitValidator.split(ipBegin);
+            String threeNumIpLast = SplitValidator.split(ipLast);
+
+            if (validatorBegin.validate(ipBegin)&&validatorLast.validate(ipLast)&&(threeNumIpBegin.equals(threeNumIpLast))) {
                 int lastIpBegin = SplitValidator.oneLastNum(ipBegin,3);
                 int lastIpLast = SplitValidator.oneLastNum(ipLast,3);
                 if (lastIpBegin < lastIpLast) {
@@ -30,11 +33,7 @@ public class Task1 {
                     startIp =  lastIpLast;
                     endIp = lastIpBegin;
                 }
-                for (int i = startIp; i < (endIp - 1); i++) {
-                    startIp++;
-                    System.out.println(SplitValidator.split(ipBegin) + startIp);
-                }
-
+                print(startIp,endIp, threeNumIpBegin);
             }
             else {
                 System.out.println("Некорректно введен IP адресс");
@@ -45,5 +44,13 @@ public class Task1 {
         }
     }
 
+
+
+    public static void print(int startIp, int endIp, String firstThreeNumIp){
+        for (int i = startIp; i < (endIp - 1); i++) {
+            startIp++;
+            System.out.println(firstThreeNumIp + startIp);
+        }
+    }
 
 }
