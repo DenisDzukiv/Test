@@ -29,6 +29,7 @@ public class TestTask2 {
         for (int i =0; i<fio.size(); i++) {
             System.out.println(fio.get(i));
             list = TelephoneUser.listTelephone(fio.get(i).toUpperCase().trim());
+            System.out.println(list);
             Task2.print(list);
         }
     }
