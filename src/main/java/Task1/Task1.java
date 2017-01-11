@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  * На вход программе задаются два IP адреса, программа перебирает все
- допустимые адреса в введенном диапазоне и выдает их на экран.
+ * допустимые адреса в введенном диапазоне и выдает их на экран.
  */
 public class Task1 {
     public static void main(String[] args) {
@@ -16,26 +16,23 @@ public class Task1 {
             String ipBegin = reader.readLine();
             String ipLast = reader.readLine();
             Validator validatorBegin = new Validator();
-            Validator validatorLast = new Validator();
             int startIp;
             int endIp;
             String threeNumIpBegin = SplitValidator.split(ipBegin);
             String threeNumIpLast = SplitValidator.split(ipLast);
 
-            if (validatorBegin.validate(ipBegin)&&validatorLast.validate(ipLast)&&(threeNumIpBegin.equals(threeNumIpLast))) {
-                int lastIpBegin = SplitValidator.oneLastNum(ipBegin,3);
-                int lastIpLast = SplitValidator.oneLastNum(ipLast,3);
+            if (validatorBegin.validate(ipBegin) && validatorBegin.validate(ipLast) && (threeNumIpBegin.equals(threeNumIpLast))) {
+                int lastIpBegin = SplitValidator.oneLastNum(ipBegin, 3);
+                int lastIpLast = SplitValidator.oneLastNum(ipLast, 3);
                 if (lastIpBegin < lastIpLast) {
-                    startIp =  lastIpBegin;
+                    startIp = lastIpBegin;
                     endIp = lastIpLast;
-                }
-                else {
-                    startIp =  lastIpLast;
+                } else {
+                    startIp = lastIpLast;
                     endIp = lastIpBegin;
                 }
-                print(startIp,endIp, threeNumIpBegin);
-            }
-            else {
+                print(startIp, endIp, threeNumIpBegin);
+            } else {
                 System.out.println("Некорректно введен IP адресс");
                 System.exit(0);
             }
@@ -44,9 +41,7 @@ public class Task1 {
         }
     }
 
-
-
-    public static void print(int startIp, int endIp, String firstThreeNumIp){
+    public static void print(int startIp, int endIp, String firstThreeNumIp) {
         for (int i = startIp; i < (endIp - 1); i++) {
             startIp++;
             System.out.println(firstThreeNumIp + startIp);
