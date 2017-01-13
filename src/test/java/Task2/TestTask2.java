@@ -4,6 +4,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -25,7 +26,7 @@ public class TestTask2 {
     public void testListTelephone(){
         System.out.println("");
         System.out.println("Тестирование метода listTelephone класса TelephoneUser:");
-        ArrayList<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<String>();
         for (int i =0; i<fio.size(); i++) {
             System.out.println(fio.get(i));
             list = TelephoneUser.listTelephone(fio.get(i).toUpperCase().trim());
